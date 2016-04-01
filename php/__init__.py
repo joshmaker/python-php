@@ -18,8 +18,13 @@ class PHP(object):
                 php_code = (
                     "<?php\n"
                     "$args = json_decode('{args}', true);\n"
+                    "ob_start();\n"
                     "$result = @call_user_func_array('{function_name}', $args);\n"
+                    "$buffer = ob_get_contents();\n"
+                    "ob_end_clean();"
+                    "if ($buffer) {{ $result = $buffer; }}\n"
                     "echo json_encode($result);"
+
                 ).format(args=json.dumps(args).replace("'", "\\'"),
                          function_name=call_php_function.name)
                 f.write(php_code)

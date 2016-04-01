@@ -24,5 +24,9 @@ class PythonPHPTestCase(unittest.TestCase):
         r = php.array_flip({"foo": "bar", "spam": "eggs"})
         self.assertEqual(r, {"bar": "foo", "eggs": "spam"})
 
+    def test_print_r(self):
+        r = php.print_r(['test'])
+        self.assertEqual(r, u'Array\n(\n    [0] => test\n)\n')
+
 if __name__ == '__main__':
     unittest.main()
