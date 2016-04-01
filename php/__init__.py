@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import sys
 
 
@@ -29,6 +31,8 @@ class PHP(object):
             if err:
                 raise PHPException(err)
             return json.loads(out)
+        if name in ['echo', 'print']:
+            return print
         call_php_function.name = name
         return call_php_function
 
