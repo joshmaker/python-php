@@ -13,7 +13,7 @@ To access PHP functions in Python, simply import the php module and get started.
 import php
 
 php.str_replace('Python', 'PHP', 'Hello World of Python')
-# Output: u'Hello World of Python'
+# Output: u'Hello World of PHP'
 ```
 Python PHP supports the following types: int, string, list, and dictionaries
 
