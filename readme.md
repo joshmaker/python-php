@@ -4,7 +4,7 @@ Have you ever wished that the Python standard library had the power and flexibil
 ## Installation
 Python PHP can be installed using pip
 ```
-$ pip install -e git+git@github.com:theatlantic/joshmaker/python-php#egg=python-php
+$ pip install -e git+git@github.com:joshmaker/python-php.git#egg=python-php
 ```
 
 ## Usage
