@@ -14,7 +14,7 @@ class PHP(object):
         import tempfile
 
         def call_php_function(*args):
-            with tempfile.NamedTemporaryFile() as f:
+            with tempfile.NamedTemporaryFile(mode='w+t') as f:
                 php_code = (
                     "<?php\n"
                     "$args = json_decode('{args}', true);\n"
@@ -33,6 +33,7 @@ class PHP(object):
                 # print "%s\n-------------\n%s\n\n" % (f.name, f.read())
                 process = subprocess.Popen(['php', '-f', f.name], stdout=subprocess.PIPE)
                 out, err = process.communicate()
+                out = out.decode('utf-8')
             if err:
                 raise PHPException(err)
             return json.loads(out)
