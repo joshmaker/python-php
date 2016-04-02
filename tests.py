@@ -8,7 +8,7 @@ class PythonPHPTestCase(unittest.TestCase):
     """Just because something is tested, doesn't mean it is safe"""
 
     def test_strtotime(self):
-        r = php.strtotime("2015-01-01")
+        r = php.strtotime("2015-01-01 UTC")
         self.assertEqual(r, 1420070400)
 
     def test_str_replace(self):
